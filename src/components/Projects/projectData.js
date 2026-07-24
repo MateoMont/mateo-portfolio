@@ -2,12 +2,12 @@ const projects = [
   {
     id: 1,
 
-    title: "Cookie Who",
+    title: "Cookie-Ju",
 
     subtitle: "Aplicación web para gestión de pedidos online",
 
     description:
-      "Cookie Who es una aplicación web desarrollada para un emprendimiento de galletas artesanales que se encontraba en etapa de crecimiento. La necesidad principal era contar con una herramienta sencilla que permitiera a sus clientes realizar pedidos de forma rápida y organizada, sin depender exclusivamente de mensajes manuales. La aplicación fue diseñada priorizando una experiencia simple e intuitiva, facilitando la gestión de ventas y acompañando la evolución del negocio.",
+      "Cookie-Ju es una aplicación web desarrollada para un emprendimiento de galletas artesanales que se encontraba en etapa de crecimiento. La necesidad principal era contar con una herramienta sencilla que permitiera a sus clientes realizar pedidos de forma rápida y organizada, sin depender exclusivamente de mensajes manuales. La aplicación fue diseñada priorizando una experiencia simple e intuitiva, facilitando la gestión de ventas y acompañando la evolución del negocio.",
 
 
     technologies: [

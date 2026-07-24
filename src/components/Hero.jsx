@@ -196,19 +196,13 @@ export default function Hero() {
 
 
 
-              <span className="block text-7xl lg:text-8xl text-white">
+              <span className="block text-5xl sm:text-6xl lg:text-8xl text-white">
+                             MATEO
+                               </span>
 
-                MATEO
-
-              </span>
-
-
-
-              <span className="block text-7xl lg:text-8xl text-cyan-400 mt-2">
-
-                MONTERO
-
-              </span>
+              <span className="block text-5xl sm:text-6xl lg:text-8xl text-cyan-400 mt-2">
+                            MONTERO
+                   </span>
 
 
 
@@ -220,7 +214,7 @@ export default function Hero() {
 
             <h2 className="mt-8 text-3xl lg:text-4xl font-bold text-white">
 
-              Junior Full Stack Developer
+              Desarrollador Full Stack Junior
 
             </h2>
 
@@ -238,7 +232,7 @@ export default function Hero() {
 
               <span className="font-bold text-cyan-400">
 
-                React, Next.js, C#, .NET, TypeScript, Prisma y PostgreSQL
+                React, Next.js, C#, .NET, JavaScript, Prisma y SQLite
 
               </span>
 

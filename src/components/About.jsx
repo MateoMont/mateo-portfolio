@@ -61,7 +61,7 @@ export default function About() {
             transformar ideas en
             <span className="text-cyan-400 font-semibold">
               {" "}soluciones reales
-            </span>
+            </span>{" "}
             mediante código limpio, organizado y mantenible.
             <br />
             <br />

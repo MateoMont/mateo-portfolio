@@ -34,11 +34,10 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto h-20 px-8 flex items-center justify-between">
 
-        {/* Logo */}
-        <h1 className="text-2xl font-black tracking-wide text-white">
-          Mateo
-          <span className="text-cyan-400">.</span>
-        </h1>
+       {/* Logo */}
+<h1 className="hidden sm:block text-2xl font-black tracking-wider text-cyan-400 select-none">
+  {"<MM />"}
+</h1>
 
         {/* Menú */}
         <nav className="hidden md:flex items-center gap-10 text-sm font-semibold uppercase tracking-wider">
