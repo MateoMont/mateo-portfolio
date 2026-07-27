@@ -316,7 +316,7 @@ export default function Hero() {
 
               <a
 
-                href="/CV-Mateo-Montero.pdf"
+                href="/C.V-Mateo-Montero.pdf"
 
                 className="
 
