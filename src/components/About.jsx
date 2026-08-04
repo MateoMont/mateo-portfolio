@@ -1,67 +1,55 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function About() {
-  return (
-    <section
-      id="about"
-      className="relative overflow-hidden py-28 bg-[#071426]"
-    >
-      {/* Luces de fondo */}
-      <div className="absolute -top-40 -left-40 w-[420px] h-[420px] rounded-full bg-cyan-500/10 blur-[170px]" />
+  const prefersReduced = useReducedMotion();
 
-      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-blue-600/10 blur-[220px]" />
+  return (
+    <section id="about" className="relative overflow-hidden py-28 bg-[#121212]">
+      {/* Textura de grano, igual que el Hero */}
+      <svg className="absolute inset-0 w-full h-full opacity-[0.06]" aria-hidden="true">
+        <filter id="grain-about">
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#grain-about)" />
+      </svg>
 
       <div className="relative z-10 max-w-5xl mx-auto px-8">
-
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={prefersReduced ? false : { opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: .8 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="text-center"
         >
-          <p className="uppercase tracking-[5px] text-cyan-400 font-semibold">
+          <p className="uppercase tracking-[5px] text-[#c1272d] font-semibold text-sm">
             Conoceme
           </p>
 
-          <h2 className="mt-3 text-5xl lg:text-6xl font-black text-white">
-            Sobre <span className="text-cyan-400">mí</span>
+          <h2
+            className="mt-3 text-5xl lg:text-6xl uppercase text-white"
+            style={{ fontFamily: "'Anton', sans-serif" }}
+          >
+            Sobre <span className="text-[#c1272d]">mí</span>
           </h2>
 
-          <div className="w-28 h-1 bg-cyan-400 rounded-full mx-auto mt-6"></div>
-
+          <div className="w-28 h-1 bg-[#c1272d] mx-auto mt-6" />
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={prefersReduced ? false : { opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="
-            mt-16
-            rounded-3xl
-            border
-            border-cyan-500/20
-            bg-white/5
-            backdrop-blur-xl
-            p-10
-            lg:p-14
-          "
+          className="mt-16 rounded-2xl border border-white/10 bg-[#181818] p-10 lg:p-14"
         >
           <p className="text-xl leading-10 text-slate-300 text-center">
             Desarrollo
-            <span className="text-cyan-400 font-semibold">
-              {" "}aplicaciones web modernas
-            </span>,
+            <span className="text-[#c1272d] font-semibold"> aplicaciones web modernas</span>,
             funcionales y orientadas a brindar una
-            <span className="text-cyan-400 font-semibold">
-              {" "}excelente experiencia de usuario
-            </span>.
+            <span className="text-[#c1272d] font-semibold"> excelente experiencia de usuario</span>.
             Me motiva resolver problemas, aprender nuevas tecnologías y
             transformar ideas en
-            <span className="text-cyan-400 font-semibold">
-              {" "}soluciones reales
-            </span>{" "}
+            <span className="text-[#c1272d] font-semibold"> soluciones reales</span>{" "}
             mediante código limpio, organizado y mantenible.
             <br />
             <br />
@@ -69,9 +57,7 @@ export default function About() {
             proyecto en el que participe.
           </p>
         </motion.div>
-
       </div>
     </section>
   );
 }
-

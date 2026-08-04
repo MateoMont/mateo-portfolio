@@ -2,18 +2,10 @@ export default function TechnologyBadge({ technology }) {
   return (
     <span
       className="
-        px-4
-        py-2
-        rounded-full
-        text-sm
-        text-cyan-300
-        bg-cyan-400/10
-        border
-        border-cyan-400/20
-        backdrop-blur-md
+        px-4 py-2 rounded-full text-sm text-slate-200
+        bg-white/5 border border-white/15
         transition
-        hover:bg-cyan-400/20
-        hover:scale-105
+        hover:bg-[#c1272d]/15 hover:border-[#c1272d]/40 hover:text-white hover:scale-105
       "
     >
       {technology}
