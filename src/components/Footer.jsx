@@ -5,32 +5,60 @@ export default function Footer() {
   const prefersReduced = useReducedMotion();
 
   return (
-    <footer className="bg-[#0d0d0d] border-t border-white/10 py-8 px-6">
+    <footer className="bg-[#0d0d0d] border-t border-white/10 px-6 py-8">
+
       <motion.div
-        initial={prefersReduced ? false : { opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={
+          prefersReduced
+            ? false
+            : {
+                opacity: 0,
+                y: 15,
+              }
+        }
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="max-w-6xl mx-auto flex flex-col items-center gap-5"
+        className="
+          max-w-7xl
+          mx-auto
+          flex
+          flex-col
+          md:flex-row
+          items-center
+          justify-between
+          gap-5
+        "
       >
-        <h3
-          className="text-xl md:text-2xl uppercase text-white"
-          style={{ fontFamily: "'Anton', sans-serif" }}
-        >
-          Mateo <span className="text-[#c1272d]">Montero</span>
-        </h3>
 
-        <p className="text-slate-400 text-sm text-center">
-          Desarrollador Web Junior | React | Next.js
-        </p>
+        {/* Nombre */}
+        <div className="text-center md:text-left">
+          <p className="text-white font-semibold">
+            Mateo <span className="text-[#c1272d]">Montero</span>
+          </p>
 
-        <div className="flex gap-5 text-2xl text-slate-400">
+          <p className="text-slate-600 text-xs mt-1">
+            © {new Date().getFullYear()} Mateo Montero
+          </p>
+        </div>
+
+
+        {/* Redes */}
+        <div className="flex items-center gap-5 text-xl text-slate-500">
+
           <a
             href="https://github.com/MateoMont"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Perfil de GitHub de Mateo Montero"
-            className="hover:text-[#c1272d] transition"
+            className="
+              transition
+              hover:text-[#c1272d]
+              hover:-translate-y-0.5
+            "
           >
             <FaGithub />
           </a>
@@ -40,7 +68,11 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Perfil de LinkedIn de Mateo Montero"
-            className="hover:text-[#c1272d] transition"
+            className="
+              transition
+              hover:text-[#c1272d]
+              hover:-translate-y-0.5
+            "
           >
             <FaLinkedin />
           </a>
@@ -48,16 +80,19 @@ export default function Footer() {
           <a
             href="mailto:mateomonterochaves@gmail.com"
             aria-label="Enviar email a Mateo Montero"
-            className="hover:text-[#c1272d] transition"
+            className="
+              transition
+              hover:text-[#c1272d]
+              hover:-translate-y-0.5
+            "
           >
             <FaEnvelope />
           </a>
+
         </div>
 
-        <p className="text-slate-600 text-xs mt-3">
-          © {new Date().getFullYear()} Mateo Montero. Todos los derechos reservados.
-        </p>
       </motion.div>
+
     </footer>
   );
 }

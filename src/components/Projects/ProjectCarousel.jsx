@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function ProjectCarousel({ project }) {
-  const slides = [...project.images, project.video];
+  const slides = project.video ? [...project.images, project.video] : project.images;
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const isVideo = slides[current].endsWith(".mp4");
+    const isVideo = slides[current]?.endsWith(".mp4");
     const duration = isVideo ? 10000 : 4000;
 
     const interval = setInterval(() => {
@@ -17,7 +17,7 @@ export default function ProjectCarousel({ project }) {
   }, [current, slides]);
 
   const currentSlide = slides[current];
-  const isVideo = currentSlide.endsWith(".mp4");
+  const isVideo = currentSlide?.endsWith(".mp4");
 
   return (
     <div className="relative">
@@ -49,7 +49,7 @@ export default function ProjectCarousel({ project }) {
               <img
                 src={currentSlide}
                 alt={project.title}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain bg-white"
               />
             )}
           </motion.div>

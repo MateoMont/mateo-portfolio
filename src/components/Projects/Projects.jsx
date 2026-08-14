@@ -10,7 +10,8 @@ export default function Projects() {
       id="projects"
       className="relative min-h-screen bg-[#0d0d0d] py-24 px-6 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
+
         {/* Título */}
         <motion.div
           initial={prefersReduced ? false : { opacity: 0, y: 40 }}
@@ -23,22 +24,29 @@ export default function Projects() {
             className="text-4xl md:text-5xl uppercase text-white"
             style={{ fontFamily: "'Anton', sans-serif" }}
           >
-            Mis <span className="text-[#c1272d]">Proyectos</span>
+            Mis{" "}
+            <span className="text-[#c1272d]">
+              Proyectos
+            </span>
           </h2>
 
           <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
-            Aplicaciones web desarrolladas aplicando tecnologías modernas,
-            enfocadas en resolver problemas reales y mejorar la experiencia
-            del usuario.
+            Algunos de los proyectos que he desarrollado,
+            aplicando diferentes tecnologías para resolver
+            problemas reales.
           </p>
         </motion.div>
 
-        {/* Lista de proyectos */}
-        <div className="grid grid-cols-1 gap-12">
+        {/* Proyectos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+            />
           ))}
         </div>
+
       </div>
     </section>
   );

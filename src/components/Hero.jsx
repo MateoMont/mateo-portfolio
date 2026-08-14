@@ -34,10 +34,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <span className="inline-flex items-center gap-2 mb-6 text-xs font-semibold tracking-[0.3em] uppercase text-[#c1272d]">
-              <span className="w-6 h-px bg-[#c1272d]" />
-              Portafolio 2026
-            </span>
+           <span className="inline-flex items-center mb-6 text-xs font-semibold tracking-[0.3em] uppercase text-[#c1272d]">
+  Portafolio 2026
+</span>
 
             <h1
               className="leading-[0.9] text-white uppercase"

@@ -60,7 +60,7 @@ export default function Navbar() {
             <FaGithub />
           </a>
           <a
-            href="https://linkedin.com/in/"
+           href="https://www.linkedin.com/in/mateo-montero-chaves-/"
             target="_blank"
             rel="noreferrer"
             aria-label="Perfil de LinkedIn de Mateo Montero"
