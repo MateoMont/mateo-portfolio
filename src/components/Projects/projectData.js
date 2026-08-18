@@ -21,6 +21,8 @@ const projects = [
       "Vercel",
     ],
 
+    logo: "/projects/logoCookie-ju.png",
+
     images: [
       "/projects/cookiewho-1.png",
       "/projects/cookiewho-2.png",
@@ -37,6 +39,15 @@ const projects = [
       "Formulario de cliente",
       "Gestión de pedidos",
       "Diseño responsive",
+    ],
+
+    contribution: [
+      "Desarrollo de la interfaz",
+      "Lógica de pedidos",
+      "Carrito de compras",
+      "Integración con base de datos",
+      "Diseño responsive",
+      "Despliegue de la aplicación",
     ],
 
     demo: "https://galletas-app.vercel.app/",
@@ -71,7 +82,6 @@ const projects = [
       "max-w-[72%] max-h-[60%] object-contain rounded-xl border border-white/10",
 
     images: [
-
       "/projects/verdeo-hero.png",
       "/projects/verdeo-properties.png",
       "/projects/verdeo-about.png",
@@ -126,6 +136,8 @@ const projects = [
       "QuestPDF",
     ],
 
+    logo: "/projects/logoTotora.png",
+
     images: [
       "/projects/clientes.png.jpg",
       "/projects/pruductos.png",
@@ -140,6 +152,18 @@ const projects = [
       "Exportación a PDF con diseño de marca",
       "Arquitectura API REST + cliente de escritorio",
     ],
+
+    contribution: [
+      "Desarrollo de la API REST",
+      "Aplicación de escritorio WPF",
+      "Integración con SQL Server",
+      "Gestión de clientes y productos",
+      "Generación de facturas",
+      "Exportación de documentos PDF",
+    ],
+
+    outcome:
+      "Totora reúne gestión de clientes, productos, facturación y generación de PDF en una aplicación pensada para resolver un proceso real de negocio.",
 
     github: "https://github.com/MateoMont/sistema-facturacion",
   },

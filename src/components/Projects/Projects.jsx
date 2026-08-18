@@ -10,7 +10,7 @@ export default function Projects() {
       id="projects"
       className="relative min-h-screen bg-[#0d0d0d] py-24 px-6 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
 
         {/* Título */}
         <motion.div
@@ -38,7 +38,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Proyectos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 max-w-7xl mx-auto items-center">
           {projects.map((project) => (
             <ProjectCard
               key={project.id}

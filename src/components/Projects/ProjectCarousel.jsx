@@ -1,73 +1,160 @@
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useMemo, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function ProjectCarousel({ project }) {
-  const slides = project.video ? [...project.images, project.video] : project.images;
+  const prefersReduced = useReducedMotion();
+
+  const slides = useMemo(() => {
+    if (!project) return [];
+
+    const result = [];
+
+    if (project.video) {
+      result.push({
+        type: "video",
+        src: project.video,
+      });
+    }
+
+    if (Array.isArray(project.images)) {
+      project.images.forEach((image) => {
+        if (image) {
+          result.push({
+            type: "image",
+            src: image,
+          });
+        }
+      });
+    }
+
+    return result;
+  }, [project]);
+
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const isVideo = slides[current]?.endsWith(".mp4");
-    const duration = isVideo ? 10000 : 4000;
+    setCurrent(0);
+  }, [project]);
 
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, duration);
-
-    return () => clearInterval(interval);
-  }, [current, slides]);
+  if (slides.length === 0) {
+    return (
+      <div className="w-full border border-white/10 rounded-2xl p-10 text-center">
+        <p className="text-slate-500">
+          No hay contenido disponible para mostrar.
+        </p>
+      </div>
+    );
+  }
 
   const currentSlide = slides[current];
-  const isVideo = currentSlide?.endsWith(".mp4");
+
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % slides.length);
+  };
+
+  const previousSlide = () => {
+    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
   return (
-    <div className="relative">
-      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/40 aspect-video flex items-center justify-center">
-        {isVideo && (
-          <div className="absolute top-4 left-4 z-20 px-4 py-2 rounded-full bg-[#c1272d] text-white text-sm font-semibold shadow-lg">
-            🎥 Demo en funcionamiento
-          </div>
+    <div className="w-full">
+      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#080808]">
+
+        {/* CONTENIDO */}
+
+        <motion.div
+          key={`${currentSlide.type}-${currentSlide.src}`}
+          initial={
+            prefersReduced
+              ? false
+              : {
+                  opacity: 0,
+                  scale: 0.98,
+                }
+          }
+          animate={
+            prefersReduced
+              ? {}
+              : {
+                  opacity: 1,
+                  scale: 1,
+                }
+          }
+          transition={{ duration: 0.4 }}
+          className="w-full"
+        >
+          {currentSlide.type === "video" ? (
+            <video
+              src={currentSlide.src}
+              controls
+              playsInline
+              className="block w-full max-h-[700px] object-contain bg-black"
+            />
+          ) : (
+            <img
+              src={currentSlide.src}
+              alt={`${project.title} - captura ${current + 1}`}
+              className="block w-full max-h-[700px] object-contain bg-black"
+            />
+          )}
+        </motion.div>
+
+        {/* FLECHA ANTERIOR */}
+
+        {slides.length > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={previousSlide}
+              aria-label="Anterior"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/70 border border-white/10 text-white flex items-center justify-center hover:bg-white hover:text-black transition"
+            >
+              ←
+            </button>
+
+            {/* FLECHA SIGUIENTE */}
+
+            <button
+              type="button"
+              onClick={nextSlide}
+              aria-label="Siguiente"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/70 border border-white/10 text-white flex items-center justify-center hover:bg-white hover:text-black transition"
+            >
+              →
+            </button>
+          </>
         )}
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSlide}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.05 }}
-            transition={{ duration: 0.5 }}
-            className="w-full h-full flex items-center justify-center"
-          >
-            {isVideo ? (
-              <video
-                src={currentSlide}
-                autoPlay
-                muted
-                controls
-                className="w-full h-full object-contain"
-              />
-            ) : (
-              <img
-                src={currentSlide}
-                alt={project.title}
-                className="w-full h-full object-contain bg-white"
-              />
-            )}
-          </motion.div>
-        </AnimatePresence>
       </div>
 
-      <div className="flex justify-center gap-2 mt-5">
-        {slides.map((slide, index) => (
-          <button
-            key={slide}
-            onClick={() => setCurrent(index)}
-            aria-label={`Ver elemento ${index + 1} de ${slides.length}`}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              current === index ? "w-8 bg-[#c1272d]" : "w-2 bg-white/30"
-            }`}
-          />
-        ))}
-      </div>
+      {/* INDICADORES */}
+
+      {slides.length > 1 && (
+        <div className="flex justify-center items-center gap-2 mt-5">
+          {slides.map((slide, index) => (
+            <button
+              key={`${slide.type}-${slide.src}-${index}`}
+              type="button"
+              onClick={() => setCurrent(index)}
+              aria-label={`Mostrar contenido ${index + 1}`}
+              className={`h-1.5 rounded-full transition-all ${
+                index === current
+                  ? "w-8 bg-white"
+                  : "w-2 bg-white/20 hover:bg-white/40"
+              }`}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* CONTADOR */}
+
+      {slides.length > 1 && (
+        <div className="text-center mt-3">
+          <span className="text-xs text-slate-600">
+            {current + 1} / {slides.length}
+          </span>
+        </div>
+      )}
     </div>
   );
 }
