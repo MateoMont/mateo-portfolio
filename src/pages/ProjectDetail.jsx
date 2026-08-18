@@ -35,11 +35,11 @@ export default function ProjectDetail() {
 
   const isCookieJu = project.slug === "cookie-ju";
 
-  const logo = isCookieJu
-    ? "/projects/logoCookie-ju.png"
-    : "/projects/logoTotora.png";
+  const logo =
+    project.logo ||
+    (isCookieJu ? "/projects/logoCookie-ju.png" : "/projects/logoTotora.png");
 
-  const contribution = isCookieJu
+  const contribution = project.contribution || (isCookieJu
     ? [
         "Desarrollo de la interfaz",
         "Lógica de pedidos",
@@ -53,9 +53,9 @@ export default function ProjectDetail() {
         "Aplicación de escritorio WPF",
         "Integración con SQL Server",
         "Gestión de clientes y productos",
-        "Generación de facturas",
-        "Exportación de documentos PDF",
-      ];
+      "Generación de facturas",
+      "Exportación de documentos PDF",
+    ]);
 
   return (
     <div className="min-h-screen bg-[#0d0d0d] text-white">
@@ -466,9 +466,9 @@ export default function ProjectDetail() {
 
             <p className="text-slate-400 text-lg leading-8 max-w-2xl mb-10">
 
-              {isCookieJu
+              {project.outcome || (isCookieJu
                 ? "Cookie-Ju terminó convirtiéndose en una aplicación funcional para centralizar los pedidos y hacer más sencillo el proceso de compra."
-                : "Totora reúne gestión de clientes, productos, facturación y generación de PDF en una aplicación pensada para resolver un proceso real de negocio."
+                : "Totora reúne gestión de clientes, productos, facturación y generación de PDF en una aplicación pensada para resolver un proceso real de negocio.")
               }
 
             </p>
@@ -483,7 +483,7 @@ export default function ProjectDetail() {
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-3 text-white border-b border-[#c1272d] pb-2"
                 >
-                  Ver aplicación
+                  {project.demoLabel || "Ver aplicación"}
 
                   <span className="group-hover:translate-x-2 transition-transform">
                     →
@@ -501,7 +501,7 @@ export default function ProjectDetail() {
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-3 text-slate-400 hover:text-white border-b border-white/10 pb-2 transition"
                 >
-                  Ver código
+                  {project.githubLabel || "Ver código"}
 
                   <span className="group-hover:translate-x-2 transition-transform">
                     →

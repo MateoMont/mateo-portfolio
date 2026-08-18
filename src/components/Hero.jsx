@@ -35,8 +35,8 @@ export default function Hero() {
             transition={{ duration: 0.7 }}
           >
            <span className="inline-flex items-center mb-6 text-xs font-semibold tracking-[0.3em] uppercase text-[#c1272d]">
-  Portafolio 2026
-</span>
+              Portafolio 2026
+           </span>
 
             <h1
               className="leading-[0.9] text-white uppercase"
@@ -142,7 +142,7 @@ export default function Hero() {
                 <img
                   src="/mateo2.png"
                   alt="Mateo Montero"
-                  fetchpriority="high"
+                  fetchPriority="high"
                   className="w-full h-full object-cover grayscale-[15%] contrast-[1.05]"
                 />
               </div>

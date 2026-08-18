@@ -47,6 +47,67 @@ const projects = [
   {
     id: 2,
 
+    slug: "verdeo-real-estate",
+
+    title: "VERDEO",
+
+    subtitle: "Real Estate Landing Page",
+
+    description:
+      "Landing page inmobiliaria boutique enfocada en arquitectura, naturaleza y una experiencia visual editorial.",
+
+    technologies: [
+      "React",
+      "Vite",
+      "JavaScript",
+      "CSS",
+      "Framer Motion",
+      "Lucide React",
+    ],
+
+    logo: "/projects/verdeo-hero-house.png",
+
+    cardImageClass:
+      "max-w-[72%] max-h-[60%] object-contain rounded-xl border border-white/10",
+
+    images: [
+
+      "/projects/verdeo-hero.png",
+      "/projects/verdeo-properties.png",
+      "/projects/verdeo-about.png",
+      "/projects/verdeo-contact.png",
+    ],
+
+    contribution: [
+      "Diseño de experiencia visual editorial",
+      "Desarrollo de la landing page",
+      "Animaciones con Framer Motion",
+      "Diseño responsive",
+      "Integración de iconos con Lucide React",
+    ],
+
+    features: [
+      "Presentación editorial de propiedades",
+      "Experiencia visual centrada en arquitectura y naturaleza",
+      "Animaciones y transiciones fluidas",
+      "Diseño adaptable a todos los dispositivos",
+    ],
+
+    outcome:
+      "VERDEO combina arquitectura, naturaleza y una narrativa visual cuidada en una experiencia inmobiliaria boutique.",
+
+    demo: "https://verdeo-real-estate.vercel.app/",
+
+    github: "https://github.com/MateoMont/verdeo-real-estate",
+
+    demoLabel: "Ver Demo",
+
+    githubLabel: "GitHub",
+  },
+
+  {
+    id: 3,
+
     slug: "totora",
 
     title: "Totora",

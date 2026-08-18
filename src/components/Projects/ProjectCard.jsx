@@ -86,9 +86,10 @@ export default function ProjectCard({ project }) {
    */
 
   const logo =
-    project.slug === "cookie-ju"
+    project.logo ||
+    (project.slug === "cookie-ju"
       ? "/projects/logoCookie-ju.png"
-      : "/projects/logoTotora.png";
+      : "/projects/logoTotora.png");
 
   return (
     <motion.div
@@ -264,7 +265,10 @@ export default function ProjectCard({ project }) {
               src={logo}
               alt={project.title}
               draggable="false"
-              className="max-w-full max-h-full object-contain select-none"
+              className={
+                project.cardImageClass ||
+                "max-w-full max-h-full object-contain select-none"
+              }
             />
 
           </motion.div>
